@@ -188,6 +188,7 @@ void main() {
   v_color0 = color;
   v_color1 = a_color0;
   v_fog = fogColor;
+  v_position = worldPos;
 
   #else
 
@@ -197,3 +198,4 @@ void main() {
 
   gl_Position = pos;
 }
+
