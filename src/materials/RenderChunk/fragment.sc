@@ -1,4 +1,4 @@
-$input v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_extra, v_position
+$input v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_extra
 
 #include <bgfx_shader.sh>
 #include <newb/main.sh>
@@ -53,12 +53,6 @@ void main() {
       diffuse.rgb += v_refl.rgb*mask;
     }
   }
-
-  vec3 normal  = normalize(cross(dFdx(v_position), dFdy(v_position)));
-
-  float shade = 1.0-0.4*abs(normal.x);
-
-  diffuse.rgb *= shade;
 
   diffuse.rgb = mix(diffuse.rgb, v_fog.rgb, v_fog.a);
 
