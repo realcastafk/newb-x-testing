@@ -50,7 +50,7 @@
 
 /* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(1.0,0.4,0.1)
-#define NL_NOON_SUNLIGHT_COL   vec3(0.980,0.863,0.627)
+#define NL_NOON_SUNLIGHT_COL   vec3(0.988, 0.831, 0.455)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.01,0.03,0.2)
 
 /* Torch colors */
