@@ -56,7 +56,7 @@ void main() {
 
   vec3 normal  = normalize(cross(dFdx(v_position), dFdy(v_position)));
 
-  float shade = 1.0-0.2*abs(normal.x);
+  float shade = 1.0-0.6*abs(normal.x);
 
   diffuse.rgb *= shade;
 
