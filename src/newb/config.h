@@ -33,8 +33,8 @@
 //#define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
 //#define NL_SATURATION 1.4            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
-#define NL_TINT_LOW  vec3(0.9,0.95,1.0) // color tint for dark tone
-#define NL_TINT_HIGH vec3(1.02,0.98,0.95) // color tint for light tone
+#define NL_TINT_LOW  vec3(0.141,0.141,0.137) // color tint for dark tone
+#define NL_TINT_HIGH vec3(0.988,0.753,0.533) // color tint for light tone
 
 /* Lighting */
 #define NL_SUNLIGHT_INTENSITY   4.5  // 1.0 weak ~ 5.0 bright
@@ -50,7 +50,7 @@
 
 /* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(1.0,0.4,0.1)
-#define NL_NOON_SUNLIGHT_COL   vec3(1.02,0.98,0.95)
+#define NL_NOON_SUNLIGHT_COL   vec3(0.988, 0.753, 0.533)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.01,0.03,0.2)
 
 /* Torch colors */
