@@ -54,11 +54,16 @@ void main() {
     }
   }
 
-  vec3 normal  = normalize(cross(dFdx(v_position), dFdy(v_position)));
+    vec3 normal  = normalize(cross(dFdx(v_position), dFdy(v_position)));
 
-  float shade = 1.0-0.3*abs(normal.x);
+  float shade = 0.85 + 0.3*normal.x;
 
   diffuse.rgb *= shade;
+
+  float heightOnBlock = fract(v_position.y);
+  float bottomShade = mix(0.6, 1.0, heightOnBlock);
+
+  diffuse.rgb *= bottomShade;
 
   diffuse.rgb = mix(diffuse.rgb, v_fog.rgb, v_fog.a);
 
