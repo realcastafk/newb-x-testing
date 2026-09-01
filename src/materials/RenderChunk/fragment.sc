@@ -45,7 +45,6 @@ void main() {
   if (v_extra.b > 0.9) {
     diffuse.rgb += v_refl.rgb*v_refl.a;
   } else if (v_refl.a > 0.0) {
-    // reflective effect - only on xz plane
     float dy = abs(dFdy(v_extra.g));
     if (dy < 0.0002) {
       float mask = v_refl.a*(clamp(v_extra.r*10.0,8.2,8.8)-7.8);
@@ -54,16 +53,20 @@ void main() {
     }
   }
 
-    vec3 normal  = normalize(cross(dFdx(v_position), dFdy(v_position)));
+  vec3 normal = normalize(cross(dFdx(v_position), dFdy(v_position)));
 
-  float shade = 0.85 + 0.3*normal.x;
-
-  diffuse.rgb *= shade;
+  float faceShade = 1.0 - 0.3 * abs(normal.x);
 
   float heightOnBlock = fract(v_position.y);
-  float bottomShade = mix(0.6, 1.0, heightOnBlock);
 
-  diffuse.rgb *= bottomShade;
+  float bottomMask = 1.0 - smoothstep(0.0, 0.25, heightOnBlock);
+  float topMask = smoothstep(0.75, 1.0, heightOnBlock);
+
+  float edgeMask = max(bottomMask, topMask);
+
+  float shade = mix(1.0, faceShade, edgeMask);
+
+  diffuse.rgb *= shade;
 
   diffuse.rgb = mix(diffuse.rgb, v_fog.rgb, v_fog.a);
 
