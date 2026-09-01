@@ -53,10 +53,6 @@ void main() {
     }
   }
 
-  vec3 normal = normalize(cross(dFdx(v_position), dFdy(v_position)));
-
-  float faceShade = 1.0 - 0.3 * abs(normal.x);
-
   float heightOnBlock = fract(v_position.y);
 
   float bottomMask = 1.0 - smoothstep(0.0, 0.25, heightOnBlock);
@@ -64,7 +60,7 @@ void main() {
 
   float edgeMask = max(bottomMask, topMask);
 
-  float shade = mix(1.0, faceShade, edgeMask);
+  float shade = 1.0 - 0.12 * edgeMask;
 
   diffuse.rgb *= shade;
 
