@@ -109,8 +109,11 @@ vec3 nlLighting(
     light += vec3_splat(gameBrightness*(NL_MIN_LIGHTING_BOOST/(1.0+lum)));
   }
 
-  // darken at crevices
-  light *= COLOR.g > 0.50 ? 1.0 : 0.8;
+	// darken at crevices
+	float col_max = max(COLOR.r, max(COLOR.g, COLOR.b));
+	if (col_max < 0.8) {
+		light *= 0.8;
+	};
 
   // brighten tree leaves
   if (isTree) {
