@@ -28,8 +28,8 @@
 */
 
 /* Color correction */
-#define NL_TONEMAP_TYPE 1             // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
-#define NL_GAMMA 1.3                  // 0.3 low ~ 2.0 high
+#define NL_TONEMAP_TYPE 3             // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
+#define NL_GAMMA 1.33                  // 0.3 low ~ 2.0 high
 //#define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
 //#define NL_SATURATION 1.4            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 //#define NL_TINT                      // [toggle] enable light/dark tone tinting
@@ -50,7 +50,7 @@
 
 /* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(1.0,0.4,0.1)
-#define NL_NOON_SUNLIGHT_COL   vec3(0.922,0.957,0.980)
+#define NL_NOON_SUNLIGHT_COL   vec3(0.922,0.960,0.980)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.01,0.03,0.2)
 
 /* Torch colors */
