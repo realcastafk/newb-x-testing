@@ -111,7 +111,7 @@ vec3 nlLighting(
 
 	// darken at crevices
 	float col_max = max(COLOR.r, max(COLOR.g, COLOR.b));
-	if (col_max < 0.8) {
+	if (col_max < 0.7) {
 		light *= 0.6;
 	};
 
